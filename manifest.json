@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Instagram Downloader (viewable-only)",
+  "description": "Download images & videos from the Instagram page you're viewing. Works only for content your browser can already see (i.e., you are logged in and follow private accounts you follow).",
+  "version": "1.0.0",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Instagram Downloader"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.instagram.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
